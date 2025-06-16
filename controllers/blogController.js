@@ -1,6 +1,7 @@
 import { Blog } from "../models/blogModel.js";
 import { APIFeatures } from "../utils/APIFeatures.js";
 import { createCustomError } from "../utils/custom-error.js";
+import { calculateReadingTime } from "../utils/calculateReadingTime.js";
 
 // const highestRated = (req, res, next) => {
 //   req.sort = "-ratings";
@@ -132,6 +133,10 @@ export const createBlog = async (req, res, next) => {
     if (!Array.isArray(blogs)) {
       blogs = [blogs];
     }
+    blogs.forEach((blog) => {
+      delete blog.reading_time;
+      blog.reading_time = calculateReadingTime(blog.body);
+    });
     const blog = await Blog.create(
       blogs.map((blog) => ({ ...blog, author: req.user._id }))
     );
@@ -149,6 +154,7 @@ export const createBlog = async (req, res, next) => {
 
 export const updateBlog = async (req, res, next) => {
   try {
+    delete req.body.reading_time;
     const blog = req.blog;
     Object.assign(blog, req.body);
     await blog.save();

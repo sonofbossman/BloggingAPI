@@ -35,6 +35,8 @@ export const createSendResponse = (user, statusCode, res) => {
 
 export const signup = async (req, res, next) => {
   // Create new user in the DB
+  delete req.body.role;
+  req.body.role = "user";
   const newUser = await User.create(req.body);
   // Create a token for the new user and send response
   createSendResponse(newUser, 201, res);

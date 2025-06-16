@@ -13,6 +13,8 @@ import { router as blogRouter } from "./routes/blogRouter.js";
 import connectToMongoDB from "./configuration/mongoDBconn.js";
 import { notFound as notFoundMiddleware } from "./middleware/not-found.js";
 import { errorHandlerMiddleware } from "./middleware/error-handler.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./configuration/swaggerOptions.js";
 
 const app = express();
 
@@ -39,10 +41,12 @@ app.use(requestLogger);
 app.use(helmet());
 
 app.use(express.json({ limit: "10kb" }));
+// Swagger docs
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/user", userRouter);
+app.use("/api/v1/users", userRouter);
 app.use("/api/v1/blogs", blogRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
