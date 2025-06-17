@@ -6,7 +6,6 @@ A RESTful API for managing blog posts, users, and comments. Built with Node.js, 
 
 - User registration and authentication (JWT)
 - CRUD operations for blog posts
-- Commenting system
 - Pagination and filtering
 - Secure endpoints
 
@@ -15,7 +14,7 @@ A RESTful API for managing blog posts, users, and comments. Built with Node.js, 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/BlogAPI.git
+git clone https://github.com/sonofbossman/BlogAPI.git
 cd BlogAPI
 ```
 
