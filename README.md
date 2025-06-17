@@ -1,128 +1,48 @@
-# 📘 Backend NodeJS Second Semester Examination Project
+# BlogAPI
 
-## 📰 Blogging API
+A RESTful API for managing blog posts, users, and comments. Built with Node.js, Express, and MongoDB.
 
-### 📌 Question
+## Features
 
-You are required to build a blogging API. The general idea is that the API has a public endpoint that shows a list of articles created by different users. Anyone accessing this endpoint should be able to read any published blog, whether created by them or others.
+- User registration and authentication (JWT)
+- CRUD operations for blog posts
+- Commenting system
+- Pagination and filtering
+- Secure endpoints
 
----
+## Getting Started
 
-### ✅ Requirements
+1. Clone the repository:
 
-#### 🔐 User Authentication
+```bash
+git clone https://github.com/yourusername/BlogAPI.git
+cd BlogAPI
+```
 
-- Users should have:
-  - `first_name`
-  - `last_name`
-  - `email`
-  - `password`
-  - _(You may add other relevant fields)_
-- Users should be able to **sign up** and **sign in**.
-- Use **JWT** as the authentication strategy.
-  - Token should **expire after 1 hour**.
+2. Install dependencies:
 
-#### 📝 Blog Functionality
+```bash
+npm install
+```
 
-- A blog can exist in two states:
-  - `draft`
-  - `published`
-- **Public access (logged in or not)**:
-  - View a **paginated list of published blogs**.
-  - View a **single published blog**.
-- **Logged-in users**:
-  - Can **create a blog** (defaults to `draft` state).
-  - Can **update the blog's state** to `published`.
-  - Can **edit** their blog (in both `draft` and `published` states).
-  - Can **delete** their blog (in both `draft` and `published` states).
-  - Can **get a list of their own blogs**.
+3. Set up environment variables in a `.env` file.
 
-#### 📄 Blog Data Model
+4. Start the server:
 
-Each blog should contain:
+```bash
+npm start
+```
 
-- `title`
-- `description`
-- `tags`
-- `author`
-- `timestamp`
-- `state` (`draft` or `published`)
-- `read_count`
-- `reading_time`
-- `body`
+## API Documentation
 
-#### 📚 Blog List Endpoint
+Interactive API docs are available via Swagger:
 
-- Should be:
-  - **Paginated** (default: 20 blogs per page)
-  - **Filterable** by `state`
-  - **Searchable** by `author`, `title`, and `tags`
-  - **Orderable** by `read_count`, `reading_time`, and `timestamp`
+[Swagger Documentation](http://localhost:3000/api-docs)
 
-#### 📊 Blog Details
+## Technologies Used
 
-- When a **single blog** is requested:
-  - Return the blog along with **user (author) information**
-  - **Increment** the blog's `read_count` by 1
-- Implement an algorithm to calculate the `reading_time` of a blog.
-
----
-
-### 🧪 Testing
-
-- Write tests for **all endpoints**.
-
----
-
-### 🧱 Architecture
-
-- Follow the **MVC pattern**
-
----
-
-### 🗄️ Database
-
-- Use **MongoDB**
-
----
-
-### 🧬 Data Models
-
-#### 🧑‍💻 User
-
-- `email` (required, **unique**)
-- `first_name` (required)
-- `last_name` (required)
-- `password`
-
-#### 📰 Blog / Article
-
-- `title` (required, **unique**)
-- `description`
-- `author`
-- `state`
-- `read_count`
-- `reading_time`
-- `tags`
-- `body` (required)
-- `timestamp`
-
----
-
-### 📤 Submission
-
-- Push your code to **GitHub**
-- Host your app on **PipeOps**, **Heroku**, or **Render**
-- Share the **PipeOps/Heroku link** and the **GitHub repository link** using the  
-  **AltSchool of Engineering Tinyuka Second Semester Project Submission (Node.js)** form
-
----
-
-### 🔗 Helpful Links
-
-- [Express](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
-
----
-
-**Best of luck! 💪**
+- Node.js
+- Express.js
+- MongoDB & Mongoose
+- JWT Authentication
+- Swagger (OpenAPI)
