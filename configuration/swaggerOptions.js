@@ -14,7 +14,7 @@ export const options = {
         description: "Development server",
       },
       {
-        url: "", // deployed URL
+        url: "https://bloggingapi-254i.onrender.com/api/v1", // deployed URL
         description: "Production server",
       },
     ],
