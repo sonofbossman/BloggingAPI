@@ -45,6 +45,9 @@ app.use(express.json({ limit: "10kb" }));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
+app.get("/", (req, res) => {
+  res.send("Welcome to the BlogAPI!");
+});
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/blogs", blogRouter);
