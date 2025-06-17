@@ -36,7 +36,7 @@ npm start
 
 Interactive API docs are available via Swagger:
 
-[Swagger Documentation](http://localhost:3000/api-docs)
+[Swagger Documentation](https://bloggingapi-254i.onrender.com/api-docs)
 
 ## Technologies Used
 
