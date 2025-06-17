@@ -1,4 +1,4 @@
-# BlogAPI
+# BloggingAPI
 
 A RESTful API for managing blog posts, users, and comments. Built with Node.js, Express, and MongoDB.
 
@@ -14,8 +14,8 @@ A RESTful API for managing blog posts, users, and comments. Built with Node.js, 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/sonofbossman/BlogAPI.git
-cd BlogAPI
+git clone https://github.com/sonofbossman/BloggingAPI.git
+cd BloggingAPI
 ```
 
 2. Install dependencies:
